@@ -20,10 +20,10 @@ class MrMarkov:
             self.corpus_filename = corpus_filename
             print("[MrMarkov] Detected loaded corpus from {}, not training.".format(self.corpus_filename))
 
+            self.theme = self.corpus_filename.split('.')[0]
+
             with open(corpus_filename) as json_corpus:
                 self.corpus = json.load(json_corpus)
-            
-            
 
         else:
             self.corpus = None
@@ -32,6 +32,9 @@ class MrMarkov:
                 raise Exception("[AngryMrMarkov] Filename must be provided to make corpus!")
             
             self.filename = filename
+
+            self.theme = self.filename.split('.')[0]
+
 
     def normalize(self):
         """
@@ -147,9 +150,9 @@ class MrMarkov:
         print("[MrMarkov] Done normalizing data!")
 
         print("[MrMarkov] Saving corpus as json...")
-        with open('stories_corpus.json', 'w') as fp:
+        with open('{}.json'.format(self.theme), 'w') as fp:
             json.dump(self.corpus, fp)
-        print("[MrMarkov] Done saving \"corpus.json\"")
+        print("[MrMarkov] Done saving \"{}.json\"".format(self.theme))
         
     
     def generate_text(self, num_sentences, starting_word):
@@ -211,7 +214,7 @@ class MrMarkov:
 
 def main():
     #markov = MrMarkov(filename="stories.txt")
-    markov = MrMarkov(corpus_filename="batman_corpus.json")
+    markov = MrMarkov(filename="batman.txt")
 
     markov.markovifile()
 

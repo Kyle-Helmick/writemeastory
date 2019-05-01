@@ -1,6 +1,8 @@
 import numpy as np
 import json
 import nltk
+import re
+
 class MrMarkov:
 
     def __init__(self, filename=None, corpus=None):
@@ -127,7 +129,19 @@ class MrMarkov:
             word = np.random.choice(a=word_list, p=word_probs, size=1)[0]
             text.append(word)
 
-        return " ".join(text)
+        spaced_text = " ".join(text)
+
+        spaced_text = re.sub(r" \,", ",", spaced_text)
+        spaced_text = re.sub(r" \.", ".", spaced_text)
+        spaced_text = re.sub(r" \?", "?", spaced_text)
+        spaced_text = re.sub(r" !", "!", spaced_text)
+        spaced_text = re.sub(r"\'\' ", "\"", spaced_text)
+        spaced_text = re.sub(r" \`\`", "\"", spaced_text)
+        spaced_text = re.sub(r" \' ", "'", spaced_text)
+        spaced_text = re.sub(r" \'", "'", spaced_text)
+        spaced_text = re.sub(r"\'\'", "\"", spaced_text)
+
+        return spaced_text
         
 
 def main():

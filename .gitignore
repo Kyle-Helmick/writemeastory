@@ -105,4 +105,5 @@ venv.bak/
 
 
 ### US ###
-test.json
+*.json
+*.txt
