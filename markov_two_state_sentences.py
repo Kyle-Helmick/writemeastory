@@ -139,7 +139,7 @@ class MrMarkov:
         return " ".join(text)
 
 def main():
-    markov = MrMarkov(filename="stories.txt")
+    markov = MrMarkov(filename="cyberslaves.txt")
 
     markov.markovifile()
 

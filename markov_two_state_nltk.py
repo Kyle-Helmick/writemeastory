@@ -214,7 +214,7 @@ class MrMarkov:
 
 def main():
     #markov = MrMarkov(filename="stories.txt")
-    markov = MrMarkov(filename="batman.txt")
+    markov = MrMarkov(filename="cyberslaves.txt")
 
     markov.markovifile()
 

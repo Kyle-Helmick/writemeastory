@@ -117,7 +117,7 @@ class MrMarkov:
         return " ".join(text)
 
 def main():
-    markov = MrMarkov(filename="batman.txt")
+    markov = MrMarkov(filename="cyberslaves.txt")
 
     markov.markovifile()
 
