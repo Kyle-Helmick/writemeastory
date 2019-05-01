@@ -2,6 +2,15 @@
 
 markov shmarkov something something reddit
 
+notes on how to run: simply clone the repo
+
+```bash
+git clone https://github.com/Kyle-Helmick/writemeastory.git
+``` 
+and run any of the models using python3 (if you want to change the source text simply do so in the main function of the model) 
+
+:-)
+
 ## Examples:
 
 ### Batman with starting word of "Superman"
